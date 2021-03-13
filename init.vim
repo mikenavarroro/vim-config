@@ -19,6 +19,9 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader><F5> :so %<CR>
 nnoremap <leader>nt :NERDTreeToggle<CR>
 
+map <C-h> :bprev<CR>
+map <C-l> :bnext<CR>
+
 call plug#begin()
 
 Plug 'vim-airline/vim-airline'
@@ -47,6 +50,8 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#hunks#enabled=0
 
 "devicons
 let g:webdevicons_enable_airline_tabline = 1
