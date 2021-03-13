@@ -26,6 +26,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'dracula/vim',{'name':'dracula'}
+Plug 'nathanaelkane/vim-indent-guides'
 
 call plug#end()
 
@@ -52,4 +53,14 @@ let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
+
+"Indent guide
+let g:indent_guides_enable_on_vim_startup = 1
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+q
+    q
+        q
 
