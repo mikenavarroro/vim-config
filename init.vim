@@ -15,10 +15,10 @@ set cursorline
 let g:mapleader = ','
 
 nnoremap <leader>q :q<CR>
-nnoremap <leader><F5> :so %<CR>
 
+map <C-b> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>m<CR> 
-map <C-s> :w<CR>
+map <C-s> :w<CR> :so %<CR>
 map <C-h> :bprev<CR>
 map <C-l> :bnext<CR>
 
