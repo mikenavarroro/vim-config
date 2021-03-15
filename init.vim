@@ -11,6 +11,7 @@ set shiftwidth=4
 set smartindent
 set noshowmode
 set cursorline
+set mouse=a
 
 let g:mapleader = ','
 
@@ -30,6 +31,10 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'dracula/vim',{'name':'dracula'}
 Plug 'thaerkh/vim-indentguides'
+Plug 'mhinz/vim-signify'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
 
 call plug#end()
 
@@ -59,3 +64,5 @@ let g:webdevicons_enable_airline_statusline = 1
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
 
+"Dart
+let g:lsc_auto_map = v:true
