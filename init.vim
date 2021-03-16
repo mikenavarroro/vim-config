@@ -12,10 +12,12 @@ set smartindent
 set noshowmode
 set cursorline
 set mouse=a
+set colorcolumn=80 
 
 let g:mapleader = ','
 
 nnoremap <leader>q :q<CR>
+nnoremap <leader>qq :q!<CR>
 
 map <C-b> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>m<CR> 
@@ -29,12 +31,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
-Plug 'dracula/vim',{'name':'dracula'}
 Plug 'thaerkh/vim-indentguides'
 Plug 'mhinz/vim-signify'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
+Plug 'dracula/vim', {'as':'dracula'}
+Plug 'rakr/vim-one'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -46,8 +50,8 @@ inoremap < <><Esc>i
 inoremap ' ''<Esc>i
 inoremap " ""<Esc>i
 
-"dracula
-color dracula
+"Dracula
+"color dracula
 
 "Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -66,3 +70,8 @@ let g:webdevicons_conceal_nerdtree_brackets = 1
 
 "Dart
 let g:lsc_auto_map = v:true
+
+"Vim one
+let g:airline_theme='one'
+colorscheme one
+set background=dark 
