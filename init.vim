@@ -12,7 +12,7 @@ set smartindent
 set noshowmode
 set cursorline
 set mouse=a
-set colorcolumn=80 
+set colorcolumn=80
 
 let g:mapleader = ','
 
@@ -20,7 +20,7 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>qq :q!<CR>
 
 map <C-b> :NERDTreeToggle<CR>
-map <C-n> :NERDTreeToggle<CR>m<CR> 
+map <C-n> :NERDTreeToggle<CR>m<CR>
 map <C-s> :w<CR> :so %<CR>
 map <C-h> :bprev<CR>
 map <C-l> :bnext<CR>
@@ -39,6 +39,7 @@ Plug 'natebosch/vim-lsc-dart'
 Plug 'dracula/vim', {'as':'dracula'}
 Plug 'rakr/vim-one'
 Plug 'tpope/vim-fugitive'
+Plug 'miyakogi/conoline.vim'
 
 call plug#end()
 
@@ -72,6 +73,8 @@ let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:lsc_auto_map = v:true
 
 "Vim one
-let g:airline_theme='one'
 colorscheme one
-set background=dark 
+set background=dark
+
+"Conoline
+let g:conoline_auto_enable = 1
