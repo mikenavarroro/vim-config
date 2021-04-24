@@ -13,6 +13,7 @@ set noshowmode
 set cursorline
 set mouse=a
 set colorcolumn=80
+set clipboard=unnamedplus
 
 let g:mapleader = ','
 
@@ -38,8 +39,11 @@ Plug 'dracula/vim', {'as':'dracula'}
 Plug 'rakr/vim-one'
 Plug 'tpope/vim-fugitive'
 Plug 'miyakogi/conoline.vim'
-Plug 'codota/tabnine-vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
 
 call plug#end()
 
@@ -69,6 +73,9 @@ let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
+
+"Dart
+let g:lsc_auto_map = v:true
 
 "Vim one
 "colorscheme one
