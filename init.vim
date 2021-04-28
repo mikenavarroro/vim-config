@@ -19,6 +19,9 @@ let g:mapleader = ','
 
 nnoremap <leader>q :q<CR>
 nnoremap <leader>qq :q!<CR>
+if &filetype == 'dart'
+    nnoremap <leader>n :NERDTreeToggle<CR>m<CR>
+endif
 
 map <C-b> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>m<CR>
@@ -36,14 +39,13 @@ Plug 'scrooloose/nerdtree'
 Plug 'thaerkh/vim-indentguides'
 Plug 'mhinz/vim-signify'
 Plug 'dracula/vim', {'as':'dracula'}
-Plug 'rakr/vim-one'
 Plug 'tpope/vim-fugitive'
-Plug 'miyakogi/conoline.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -67,6 +69,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#hunks#enabled=0
 let g:airline_theme='apprentice'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 "devicons
 let g:webdevicons_enable_airline_tabline = 1
@@ -76,13 +79,8 @@ let g:webdevicons_conceal_nerdtree_brackets = 1
 
 "Dart
 let g:lsc_auto_map = v:true
-
-"Vim one
-"colorscheme one
-"set background=dark
-
-"Conoline
-"let g:conoline_auto_enable = 1
+let g:dart_format_on_save = 1
+let g:dart_style_guide = 2
 
 "Nord
 colorscheme nord
