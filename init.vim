@@ -1,13 +1,13 @@
 syntax on
 
 set number
-set numberwidth=3
+set numberwidth=1
 set rnu
-set tabstop=4
+set tabstop=2
 set encoding=utf-8
 set mouse&
 set expandtab
-set shiftwidth=4
+set shiftwidth=2
 set smartindent
 set noshowmode
 set cursorline
@@ -44,6 +44,7 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
