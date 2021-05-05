@@ -14,14 +14,12 @@ set cursorline
 set mouse=a
 set colorcolumn=80
 set clipboard=unnamedplus
+set updatetime=100
 
 let g:mapleader = ','
 
 nnoremap <leader>q :q<CR>
 nnoremap <leader>qq :q!<CR>
-if &filetype == 'dart'
-    nnoremap <leader>n :NERDTreeToggle<CR>m<CR>
-endif
 
 map <C-b> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>m<CR>
@@ -58,18 +56,17 @@ inoremap " ""<Esc>i
 autocmd BufNewFile,BufRead *.html inoremap < <><Esc>i
 
 "Dracula
-"color dracula
+"colorscheme dracula
 
 "Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#hunks#enabled=0
-let g:airline_theme='apprentice'
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_theme='nord'
 
 "devicons
 let g:webdevicons_enable_airline_tabline = 1
@@ -83,4 +80,10 @@ let g:dart_format_on_save = 1
 let g:dart_style_guide = 2
 
 "Nord
+let g:nord_italic_comments = 1
+let g:nord_italic = 1
+let g:nord_underline = 1
 colorscheme nord
+
+"Coc
+inoremap <silent><expr> <C-SPACE> coc#refresh()
