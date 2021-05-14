@@ -12,7 +12,7 @@ set smartindent
 set noshowmode
 set cursorline
 set mouse=a
-set colorcolumn=80
+set colorcolumn=81
 set clipboard=unnamedplus
 set updatetime=100
 
@@ -45,13 +45,16 @@ Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
 inoremap ( ()<Esc>i
+inoremap (<CR> (<CR>)<Esc>O
 inoremap { {}<Esc>i
 inoremap {<CR> {<CR>}<Esc>O
 inoremap [ []<Esc>i
+inoremap [<CR> [<CR>]<Esc>O
 inoremap ' ''<Esc>i
 inoremap " ""<Esc>i
 autocmd BufNewFile,BufRead *.html inoremap < <><Esc>i
