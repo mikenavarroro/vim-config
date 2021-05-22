@@ -25,26 +25,22 @@ map <C-b> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeCWD<CR>ma
 map <C-s> :w<CR>
 map <C-g> :w<CR>:so %<CR>
-map <C-h> :bprev<CR>
-map <C-l> :bnext<CR>
 
 call plug#begin()
 
+Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'thaerkh/vim-indentguides'
 Plug 'mhinz/vim-signify'
-Plug 'dracula/vim', {'as':'dracula'}
 Plug 'tpope/vim-fugitive'
 Plug 'arcticicestudio/nord-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
-Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -82,18 +78,30 @@ let g:lightline = {
       \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'filename' ] ],
+      \             [ 'gitbranch', 'filename' ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype', 'gitbranch' ] ]
+      \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead',
-      \   'filename': 'LightlineFilename'
+      \   'gitbranch': 'Branch',
+      \   'filename': 'LightlineFilename',
+      \ },
+      \ 'separator': {
+      \   'left': '',
+      \   'right': ''
+      \ },
+      \ 'subseparator': {
+      \   'left': '',
+      \   'right': ''
       \ },
       \ }
 function! LightlineFilename()
   let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
   let modified = &modified ? ' +' : ''
   return filename . modified
+endfunction
+
+function Branch()
+  return !empty(FugitiveHead())? ' '.FugitiveHead() : FugitiveHead()
 endfunction
