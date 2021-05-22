@@ -22,7 +22,7 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>qq :q!<CR>
 
 map <C-b> :NERDTreeToggle<CR>
-map <C-n> :NERDTreeToggle<CR>m<CR>
+map <C-n> :NERDTreeCWD<CR>ma
 map <C-s> :w<CR>
 map <C-g> :w<CR>:so %<CR>
 map <C-h> :bprev<CR>
@@ -30,8 +30,6 @@ map <C-l> :bnext<CR>
 
 call plug#begin()
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'thaerkh/vim-indentguides'
@@ -46,6 +44,7 @@ Plug 'natebosch/vim-lsc-dart'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -53,30 +52,16 @@ inoremap ( ()<Esc>i
 inoremap (<CR> (<CR>)<Esc>O
 inoremap { {}<Esc>i
 inoremap {<CR> {<CR>}<Esc>O
-inoremap [ []<Esc>i
+noremap [ []<Esc>i
 inoremap [<CR> [<CR>]<Esc>O
 inoremap ' ''<Esc>i
 inoremap " ""<Esc>i
 autocmd BufNewFile,BufRead *.html inoremap < <><Esc>i
 
-"Dracula
-"colorscheme dracula
-
-"Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#hunks#enabled=0
-let g:airline_theme='nord'
-
-"devicons
-let g:webdevicons_enable_airline_tabline = 1
-let g:webdevicons_enable_airline_statusline = 1
+"Devicons
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:webdevicons_enable_startify = 1
 
 "Dart
 let g:lsc_auto_map = v:true
@@ -91,3 +76,24 @@ colorscheme nord
 
 "Coc
 inoremap <silent><expr> <C-SPACE> coc#refresh()
+
+"lightline
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'filename' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileformat', 'fileencoding', 'filetype', 'gitbranch' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead',
+      \   'filename': 'LightlineFilename'
+      \ },
+      \ }
+function! LightlineFilename()
+  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  let modified = &modified ? ' +' : ''
+  return filename . modified
+endfunction
