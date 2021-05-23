@@ -2,7 +2,7 @@
 
 ## Screenshot
 
-[screenshoot](images/nvimscreen.png)
+![screenshoot](images/nvimscreen.png)
 
 # Configuración de [Neovim](https://neovim.io)
 
