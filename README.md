@@ -20,13 +20,6 @@ cd .config/
 ```
 
 1. Instalar [vim-plug](https://github.com/junegunn/vim-plug)
-para [Neovim](neovim.io) en sistema Unix, Linux
-
-```sh
-git clone https://github.com/mikenavarroro/nvim.git
-```
-
-2. Instalar [vim-plug](https://github.com/junegunn/vim-plug)
 para [Neovim](https://neovim.io) en sistema Unix, Linux
 
 ```sh
