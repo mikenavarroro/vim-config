@@ -51,7 +51,5 @@ nvim
 ```
 
 ```
-:CocInstall coc-clangd coc-css coc-emmet coc-flutter
-coc-html coc-html-css-support coc-java coc-jedi coc-json
-coc-python coc-snippets coc-sql coc-tabnine coc-tsserver
+:CocInstall coc-clangd coc-css coc-emmet coc-flutter coc-html coc-html-css-support coc-java coc-jedi coc-json coc-python coc-snippets coc-sql coc-tabnine coc-tsserver
 ```
