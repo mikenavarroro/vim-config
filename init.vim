@@ -102,6 +102,6 @@ function! LightlineFilename()
   return filename . modified
 endfunction
 
-function Branch()
+function! Branch()
   return !empty(FugitiveHead())? ' '.FugitiveHead() : FugitiveHead()
 endfunction
