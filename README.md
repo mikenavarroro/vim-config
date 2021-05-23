@@ -1,4 +1,4 @@
-# Configuración de [Neovim](neovim.io)
+# Configuración de [Neovim](https://neovim.io)
 
 ## Instalación
 1. Clona el repositorio en la carpeta ```.config/```
@@ -16,7 +16,7 @@ git clone https://github.com/mikenavarroro/nvim.git
 ```
 
 2. Instalar [vim-plug](https://github.com/junegunn/vim-plug)
-para [Neovim](neovim.io) en sistema Unix, Linux
+para [Neovim](https://neovim.io) en sistema Unix, Linux
 
 ```sh
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
