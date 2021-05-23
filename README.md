@@ -1,12 +1,10 @@
-<<<<<<< HEAD
 # Configuración de [Neovim](neovim.io) para Linux (Ubuntu)
 
 ## Screenshot
 
 [screenshoot](images/nvimscreen.png)
-=======
+
 # Configuración de [Neovim](https://neovim.io)
->>>>>>> 7954e1256c72d1e5a09c3dc854dc7622a045cd4f
 
 ## Instalación
 
