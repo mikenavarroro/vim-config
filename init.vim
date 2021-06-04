@@ -5,7 +5,6 @@ set numberwidth=1
 set rnu
 set tabstop=2
 set encoding=utf-8
-set mouse&
 set expandtab
 set shiftwidth=2
 set smartindent
@@ -15,6 +14,8 @@ set mouse=a
 set colorcolumn=81
 set clipboard=unnamedplus
 set updatetime=100
+set hidden
+set showtabline=2
 
 let g:mapleader = ','
 
@@ -25,6 +26,8 @@ map <C-b> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeCWD<CR>ma
 map <C-s> :w<CR>
 map <C-g> :w<CR>:so %<CR>
+map <C-h> :bprevious<CR>
+map <C-l> :bnext<CR>
 
 call plug#begin()
 
@@ -41,15 +44,15 @@ Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 Plug 'mhinz/vim-startify'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'kiteco/vim-plugin', {'as': 'vim-kite'}
+Plug 'mengelbrecht/lightline-bufferline'
 
 call plug#end()
 
 inoremap ( ()<Esc>i
-inoremap (<CR> (<CR>)<Esc>O
 inoremap { {}<Esc>i
 inoremap {<CR> {<CR>}<Esc>O
-noremap [ []<Esc>i
-inoremap [<CR> [<CR>]<Esc>O
+inoremap [ []<Esc>i
 inoremap ' ''<Esc>i
 inoremap " ""<Esc>i
 autocmd BufNewFile,BufRead *.html inoremap < <><Esc>i
@@ -58,6 +61,8 @@ autocmd BufNewFile,BufRead *.html inoremap < <><Esc>i
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:webdevicons_enable_startify = 1
+let g:lightline#bufferline#enable_devicons = 1
+let g:DevIconsEnableFoldersOpenClose = 1
 
 "Dart
 let g:lsc_auto_map = v:true
@@ -70,8 +75,14 @@ let g:nord_italic = 1
 let g:nord_underline = 1
 colorscheme nord
 
+"NERDTree
+let g:NERDTreeShowHidden = 1
+
 "Coc
 inoremap <silent><expr> <C-SPACE> coc#refresh()
+
+"kite
+let g:kite_supported_languages = ['*']
 
 "lightline
 let g:lightline = {
@@ -81,11 +92,12 @@ let g:lightline = {
       \             [ 'gitbranch', 'filename' ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \              [ 'fileformat', 'fileencoding', 'filetype' ],
+      \              [ 'kitestatus' ] ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'Branch',
-      \   'filename': 'LightlineFilename',
+      \   'kitestatus': 'kite#statusline',
       \ },
       \ 'separator': {
       \   'left': '',
@@ -95,12 +107,29 @@ let g:lightline = {
       \   'left': '',
       \   'right': ''
       \ },
+      \ 'tab': {
+      \   'active': [ 'filename', 'modified' ],
+      \   'inactive': [ 'filename', 'modified' ]
+      \ },
+      \ 'tabline': {
+      \   'left': [ [ 'buffers' ] ],
+      \   'right': [ [ 'close' ] ]
+      \ },
+      \ 'tabline_separator': {
+      \   'left': '',
+      \   'right': ''
+      \ },
+      \ 'tabline_subseparator': {
+      \   'left': '|',
+      \   'right': '|'
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
       \ }
-function! LightlineFilename()
-  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-  let modified = &modified ? ' +' : ''
-  return filename . modified
-endfunction
+      \ }
 
 function! Branch()
   return !empty(FugitiveHead())? ' '.FugitiveHead() : FugitiveHead()
